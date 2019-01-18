@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="com.imagetopdfconverter" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>ImageToPDFConverter</name>
+    <js-module name="ImageToPDFConverter" src="www/ImageToPDFConverter.js">
+        <clobbers target="cordova.plugins.ImageToPDFConverter"/>
+    </js-module>
+    <platform name="android">
+        <config-file parent="/*" target="res/xml/config.xml">
+            <feature name="ImageToPDFConverter">
+                <param name="android-package" value="com.imagetopdfconverter.ImageToPDFConverter"/>
+            </feature>
+        </config-file>
+        <config-file parent="/*" target="AndroidManifest.xml"/>
+        <source-file src="src/android/ImageToPDFConverter.java"
+                     target-dir="src/com/imagetopdfconverter/ImageToPDFConverter"/>
+    </platform>
+    <platform name="ios">
+        <config-file parent="/*" target="config.xml">
+            <feature name="ImageToPDFConverter">
+                <param name="ios-package" value="ImageToPDFConverter"/>
+            </feature>
+        </config-file>
+        <!--<source-file src="src/ios/ImageToPDFConverter.m"/>-->
+        <source-file src="src/ios/ImageToPDFConverter.swift"/>
+
+        <dependency id="cordova-plugin-add-swift-support" version="1.7.1"/>
+    </platform>
+</plugin>

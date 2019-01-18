@@ -1,0 +1,19 @@
+{
+  "name": "com.imagetopdfconverter",
+  "version": "0.0.1",
+  "description": "convert multiple/single image to pdf using os native functionality.",
+  "cordova": {
+    "id": "com.imagetopdfconverter",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios"
+  ],
+  "author": "Markanday Gupta",
+  "license": "MIT"
+}
