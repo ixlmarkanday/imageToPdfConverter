@@ -6,6 +6,11 @@
         var imagesPath = command.arguments[0] as? [String]
         print("###\((imagesPath)!)")
         var imageArrayOfPath : [UIImage]?
+        if(imagesPath?.count <= 0){
+            pluginResult = CDVPluginResult(status: CDVCommandStatus_ERROR, messageAs: "image path field is required as array datatype.")
+            self.commandDelegate!.send(pluginResult, callbackId: command.callbackId)
+            return
+        }
         for index in 0..<(imagesPath?.count ?? 0){
             let url = URL.init(fileURLWithPath: imagesPath![index])
             let imageData:NSData = NSData(contentsOf: url)!
