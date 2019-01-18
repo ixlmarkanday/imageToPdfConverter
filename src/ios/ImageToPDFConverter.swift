@@ -6,7 +6,7 @@
         var imagesPath = command.arguments[0] as? [String]
         print("###\((imagesPath)!)")
         var imageArrayOfPath : [UIImage]?
-        if(imagesPath?.count <= 0){
+        if(imagesPath?.count == 0){
             pluginResult = CDVPluginResult(status: CDVCommandStatus_ERROR, messageAs: "image path field is required as array datatype.")
             self.commandDelegate!.send(pluginResult, callbackId: command.callbackId)
             return
@@ -36,8 +36,7 @@
 
         pluginResult = CDVPluginResult(
             status: CDVCommandStatus_OK,
-            messageAs: 'pdf created successfully',
-            path: fileURL.path
+            messageAs: fileURL.path
         )
 
         self.commandDelegate!.send(
