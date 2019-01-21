@@ -26,7 +26,7 @@
         } catch let error as NSError {
         NSLog("Unable to create directory \(error.debugDescription)")
         }
-        UIGraphicsBeginPDFContextToFile(fileURL.appendingPathComponent(pdfFileName).path, CGRect.zero, nil);
+        UIGraphicsBeginPDFContextToFile(fileURL.appendingPathComponent(pdfFileName!).path, CGRect.zero, nil);
         for index in 0..<(imageArrayOfPath?.count ?? 0) {
             let pngImage = imageArrayOfPath?[index]
             UIGraphicsBeginPDFPageWithInfo(CGRect(x: 0, y: 0, width: (pngImage?.size.width) ?? 0.0, height: (pngImage?.size.height) ?? 0.0), nil)
@@ -37,7 +37,7 @@
 
         pluginResult = CDVPluginResult(
             status: CDVCommandStatus_OK,
-            messageAs: fileURL.path + "/" + pdfFileName
+            messageAs: fileURL.path + "/" + "\(pdfFileName!)"
         )
 
         self.commandDelegate!.send(
