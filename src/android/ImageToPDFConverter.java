@@ -37,10 +37,16 @@ public class ImageToPDFConverter extends CordovaPlugin {
   private void createPdf(JSONArray args, String name, CallbackContext callbackContext) {
     if (args != null && args.length() > 0) {
       int arraySize = args.length();
-      ContextWrapper cw = new ContextWrapper(cordova.getContext());
-      File directory = cw.getDir("imageDir", Context.MODE_PRIVATE);
+      //ContextWrapper cw = new ContextWrapper(cordova.getContext());
+      //File directory = cw.getDir("imageDir", Context.MODE_PRIVATE);
+      File docsFolder = new File(Environment.getExternalStorageDirectory() + "/MyPdf");
+              if (!docsFolder.exists()) {
+                  docsFolder.mkdir();
+                  Log.i("", "Created a new directory for PDF");
+              }
       try {
-        pdfFile = new File(directory, name);
+        //pdfFile = new File(directory, name);
+        pdfFile = new File(docsFolder.getAbsolutePath(), name);
         OutputStream output = new FileOutputStream(pdfFile);
         Document document = new Document();
         PdfWriter.getInstance(document, output);
