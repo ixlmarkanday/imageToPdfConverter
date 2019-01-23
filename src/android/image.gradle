@@ -1,0 +1,3 @@
+dependencies {
+    compile 'com.itextpdf:itextg:5.5.10'
+}
