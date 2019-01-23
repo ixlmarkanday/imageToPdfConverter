@@ -60,11 +60,10 @@ public class ImageToPDFConverter extends CordovaPlugin {
           }
         }
         document.close();
-        callbackContext.success(pdfFile.getPath());
       } catch (Exception e) {
         e.printStackTrace();
-        callbackContext.error("Error :" + e.printStackTrace());
       }
+      callbackContext.success(pdfFile.getPath());
     } else {
       callbackContext.error("Expected one non-empty string argument.");
     }
