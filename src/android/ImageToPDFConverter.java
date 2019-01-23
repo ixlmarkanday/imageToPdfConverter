@@ -16,6 +16,7 @@ import org.json.JSONException;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
+import android.os.Environment;
 
 /**
  * This class echoes a string called from JavaScript.
@@ -40,10 +41,9 @@ public class ImageToPDFConverter extends CordovaPlugin {
       //ContextWrapper cw = new ContextWrapper(cordova.getContext());
       //File directory = cw.getDir("imageDir", Context.MODE_PRIVATE);
       File docsFolder = new File(Environment.getExternalStorageDirectory() + "/MyPdf");
-              if (!docsFolder.exists()) {
-                  docsFolder.mkdir();
-                  Log.i("", "Created a new directory for PDF");
-              }
+      if (!docsFolder.exists()) {
+          docsFolder.mkdir();
+      }
       try {
         //pdfFile = new File(directory, name);
         pdfFile = new File(docsFolder.getAbsolutePath(), name);
